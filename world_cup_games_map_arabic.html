@@ -2,55 +2,55 @@
 <html>
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
-    <style>
-        .custom-icon {
-            background: none;
-            border: none;
-        }
-        .custom-popup .leaflet-popup-content-wrapper {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 10px;
-            box-shadow: 0 3px 14px rgba(0,0,0,0.2);
-        }
-        .custom-popup .leaflet-popup-content {
-            margin: 15px;
-            font-family: 'Arial', sans-serif;
-            direction: rtl;
-        }
-        .custom-popup h4 {
-            color: #2c3e50;
-            margin: 0 0 10px 0;
-            font-size: 16px;
-            border-bottom: 2px solid #3498db;
-            padding-bottom: 5px;
-        }
-        .custom-popup p {
-            margin: 0;
-            line-height: 1.6;
-            color: #34495e;
-        }
-        .custom-popup strong {
-            color: #2980b9;
-        }
-        .icon-plane {
-            color: #3498db;
-            font-size: 16px;
-            text-shadow: 2px 2px 3px rgba(0,0,0,0.3);
-            background: rgba(255,255,255,0.9);
-            padding: 8px;
-            border-radius: 50%;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        }
-        .icon-soccer {
-            color: #e74c3c;
-            font-size: 16px;
-            text-shadow: 2px 2px 3px rgba(0,0,0,0.3);
-            background: rgba(255,255,255,0.9);
-            padding: 8px;
-            border-radius: 50%;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        }
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+        <style>
+            .custom-icon {
+                background: none;
+                border: none;
+            }
+            .custom-popup .leaflet-popup-content-wrapper {
+                background: rgba(255, 255, 255, 0.95);
+                border-radius: 10px;
+                box-shadow: 0 3px 14px rgba(0,0,0,0.2);
+            }
+            .custom-popup .leaflet-popup-content {
+                margin: 15px;
+                font-family: 'Arial', sans-serif;
+                direction: rtl;
+            }
+            .custom-popup h4 {
+                color: #2c3e50;
+                margin: 0 0 10px 0;
+                font-size: 16px;
+                border-bottom: 2px solid #3498db;
+                padding-bottom: 5px;
+            }
+            .custom-popup p {
+                margin: 0;
+                line-height: 1.6;
+                color: #34495e;
+            }
+            .custom-popup strong {
+                color: #2980b9;
+            }
+            .icon-plane {
+                color: #3498db;
+                font-size: 16px;
+                text-shadow: 2px 2px 3px rgba(0,0,0,0.3);
+                background: rgba(255,255,255,0.9);
+                padding: 8px;
+                border-radius: 50%;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            }
+            .icon-soccer {
+                color: #e74c3c;
+                font-size: 16px;
+                text-shadow: 2px 2px 3px rgba(0,0,0,0.3);
+                background: rgba(255,255,255,0.9);
+                padding: 8px;
+                border-radius: 50%;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            }
         /* Mobile-friendly legend styles */
         .legend-container {
             position: fixed;
@@ -162,10 +162,10 @@
             }
         }
     </style>
-    <script>
-        L_NO_TOUCH = false;
-        L_DISABLE_3D = false;
-    </script>
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
     <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
     <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
     <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
@@ -229,8 +229,8 @@
     </div>
     
     <div id="map"></div>
-
-    <script>
+        
+<script>
         // Add this function at the beginning of your script section
         function toggleLegend() {
             const legend = document.getElementById('legend');
@@ -264,14 +264,14 @@
             position: 'bottomright'
         }).addTo(map);
 
-        // Add markers and paths with correct coordinates
+        // Add markers with custom icons
         var riyadh = [24.9578, 46.6989];
         var miami = [25.9580, -80.2389];
         var washington = [38.8686, -77.0126];
         var nashville = [36.1298, -86.7659];
 
         // Add markers with custom icons
-        L.marker(riyadh, {icon: L.AwesomeMarkers.icon({icon: 'soccer', markerColor: 'red'})})
+        L.marker(riyadh, {icon: L.AwesomeMarkers.icon({icon: 'plane', markerColor: 'red'})})
             .bindPopup('<div class="custom-popup"><h4>الرياض</h4><p>نقطة البداية</p><p>مطار الملك خالد الدولي (RUH)</p></div>')
             .addTo(map);
 
@@ -341,45 +341,9 @@
             animate: true
         }).addTo(map);
 
-        // Riyadh Airport
-        var riyadhIcon = L.icon({
-            iconUrl: 'icons/airport.png',
-            iconSize: [40, 40],
-            iconAnchor: [20, 20]
-        });
-        L.marker([24.9578, 46.6989], {icon: riyadhIcon}).addTo(map)
-            .bindPopup('<strong>مطار الملك خالد الدولي (RUH)</strong><br>الرياض، المملكة العربية السعودية');
-
-        // Hard Rock Stadium
-        var hardRockIcon = L.icon({
-            iconUrl: 'icons/stadium.png',
-            iconSize: [40, 40],
-            iconAnchor: [20, 20]
-        });
-        L.marker([25.9580, -80.2389], {icon: hardRockIcon}).addTo(map)
-            .bindPopup('<strong>ملعب هارد روك</strong><br>ميامي، فلوريدا<br>ريال مدريد ضد الهلال<br>١٨ يونيو، ٢٠٢٥<br>٣:٠٠ مساءً بتوقيت شرق الولايات المتحدة');
-
-        // Audi Field
-        var audiFieldIcon = L.icon({
-            iconUrl: 'icons/stadium.png',
-            iconSize: [40, 40],
-            iconAnchor: [20, 20]
-        });
-        L.marker([38.8686, -77.0126], {icon: audiFieldIcon}).addTo(map)
-            .bindPopup('<strong>ملعب أودي</strong><br>واشنطن العاصمة<br>ريد بول سالزبورغ ضد الهلال<br>٢٢ يونيو، ٢٠٢٥<br>٦:٠٠ مساءً بتوقيت شرق الولايات المتحدة');
-
-        // Geodis Park
-        var geodisIcon = L.icon({
-            iconUrl: 'icons/stadium.png',
-            iconSize: [40, 40],
-            iconAnchor: [20, 20]
-        });
-        L.marker([36.1298, -86.7659], {icon: geodisIcon}).addTo(map)
-            .bindPopup('<strong>ملعب جيوديس</strong><br>ناشفيل، تينيسي<br>الهلال ضد نادي باتشوكا<br>٢٦ يونيو، ٢٠٢٥<br>٨:٠٠ مساءً بتوقيت وسط الولايات المتحدة');
-
         // Fit bounds to show all markers
         var bounds = L.latLngBounds([riyadh, miami, washington, nashville]);
         map.fitBounds(bounds, {padding: [50, 50]});
-    </script>
+</script>
 </body>
 </html>
