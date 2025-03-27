@@ -497,5 +497,37 @@
             );
             map_c46943978dd12d96e2d5282b0227c7aa.addControl(mini_map_d053caaec911971b1308c411b6063b6e);
         
+            var bounds = L.latLngBounds(
+                [[24.9578, 46.6989], [38.8686, -86.7659]]
+            );
+            map_c46943978dd12d96e2d5282b0227c7aa.fitBounds(bounds);
+
+            // Add Nashville marker and popup
+            var nashville_marker = L.marker([36.1298, -86.7659]).addTo(map_c46943978dd12d96e2d5282b0227c7aa);
+            var nashville_icon = L.divIcon({
+                "className": "custom-icon",
+                "html": "\n                    <div class=\"icon-soccer\">\n                        <i class=\"fa fa-futbol-o\" aria-hidden=\"true\"></i>\n                    </div>\n                ",
+                "iconAnchor": [16, 16],
+                "iconSize": [32, 32]
+            });
+            nashville_marker.setIcon(nashville_icon);
+
+            var nashville_popup = L.popup({"className": "custom-popup", "maxWidth": 300});
+            var nashville_content = $(`<div style="width: 200px;">
+                <h4>الهلال ضد نادي باتشوكا</h4>
+                <p><strong>التاريخ:</strong> ٢٦ يونيو، ٢٠٢٥<br>
+                <strong>الوقت:</strong> ٨:٠٠ مساءً بتوقيت وسط الولايات المتحدة<br>
+                <strong>الملعب:</strong> ملعب جيوديس، ناشفيل, تينيسي</p>
+            </div>`)[0];
+            nashville_popup.setContent(nashville_content);
+            nashville_marker.bindPopup(nashville_popup);
+
+            // Add flight path from Washington to Nashville
+            var washington_to_nashville = L.polyline(
+                [[38.8686, -77.0126], [36.1298, -86.7659]],
+                {"bubblingMouseEvents": true, "color": "#FFA500", "dashArray": "20", "dashOffset": null, "fill": false, "fillColor": "#FFA500", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_c46943978dd12d96e2d5282b0227c7aa);
+
+        
 </script>
 </html>
