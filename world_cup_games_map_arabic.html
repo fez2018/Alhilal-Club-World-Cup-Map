@@ -200,61 +200,56 @@
             position: 'bottomright'
         }).addTo(map);
 
-        // Add markers and paths
-        var riyadh = [24.7136, 46.6753];
-        var seattle = [47.6062, -122.3321];
-        var philadelphia = [39.9526, -75.1652];
-        var miami = [25.7617, -80.1918];
-        var sanFrancisco = [37.7749, -122.4194];
+        // Add markers and paths with correct coordinates
+        var riyadh = [24.9578, 46.6989];
+        var miami = [25.9580, -80.2389];
+        var washington = [38.8686, -77.0126];
+        var nashville = [36.1298, -86.7659];
 
         // Add markers with custom icons
         L.marker(riyadh, {icon: L.AwesomeMarkers.icon({icon: 'soccer', markerColor: 'red'})})
-            .bindPopup('<div class="custom-popup"><h4>الرياض</h4><p>نقطة البداية</p></div>')
-            .addTo(map);
-
-        L.marker(seattle, {icon: L.AwesomeMarkers.icon({icon: 'soccer', markerColor: 'blue'})})
-            .bindPopup('<div class="custom-popup"><h4>سياتل</h4><p>المباراة الأولى</p><p>١٥ يونيو ٢٠٢٥</p></div>')
-            .addTo(map);
-
-        L.marker(philadelphia, {icon: L.AwesomeMarkers.icon({icon: 'soccer', markerColor: 'blue'})})
-            .bindPopup('<div class="custom-popup"><h4>فيلادلفيا</h4><p>المباراة الثانية</p><p>١٨ يونيو ٢٠٢٥</p></div>')
+            .bindPopup('<div class="custom-popup"><h4>الرياض</h4><p>نقطة البداية</p><p>مطار الملك خالد الدولي (RUH)</p></div>')
             .addTo(map);
 
         L.marker(miami, {icon: L.AwesomeMarkers.icon({icon: 'soccer', markerColor: 'blue'})})
-            .bindPopup('<div class="custom-popup"><h4>ميامي</h4><p>المباراة الثالثة</p><p>٢١ يونيو ٢٠٢٥</p></div>')
+            .bindPopup('<div class="custom-popup"><h4>ريال مدريد ضد الهلال</h4><p>التاريخ: ١٨ يونيو، ٢٠٢٥</p><p>الوقت: ٣:٠٠ مساءً بتوقيت شرق الولايات المتحدة</p><p>الملعب: ملعب هارد روك، ميامي جاردنز، فلوريدا</p></div>')
             .addTo(map);
 
-        L.marker(sanFrancisco, {icon: L.AwesomeMarkers.icon({icon: 'soccer', markerColor: 'blue'})})
-            .bindPopup('<div class="custom-popup"><h4>سان فرانسيسكو</h4><p>المباراة الرابعة</p><p>٢٤ يونيو ٢٠٢٥</p></div>')
+        L.marker(washington, {icon: L.AwesomeMarkers.icon({icon: 'soccer', markerColor: 'blue'})})
+            .bindPopup('<div class="custom-popup"><h4>ريد بول سالزبورغ ضد الهلال</h4><p>التاريخ: ٢٢ يونيو، ٢٠٢٥</p><p>الوقت: ٦:٠٠ مساءً بتوقيت شرق الولايات المتحدة</p><p>الملعب: ملعب أودي، واشنطن العاصمة</p></div>')
+            .addTo(map);
+
+        L.marker(nashville, {icon: L.AwesomeMarkers.icon({icon: 'soccer', markerColor: 'blue'})})
+            .bindPopup('<div class="custom-popup"><h4>الهلال ضد نادي باتشوكا</h4><p>التاريخ: ٢٦ يونيو، ٢٠٢٥</p><p>الوقت: ٨:٠٠ مساءً بتوقيت وسط الولايات المتحدة</p><p>الملعب: ملعب جيوديس، ناشفيل، تينيسي</p></div>')
             .addTo(map);
 
         // Add flight paths with plane icons
-        var path1 = L.polyline.antPath([riyadh, seattle], {
-            color: '#3498db',
+        var path1 = L.polyline.antPath([riyadh, miami], {
+            color: '#FF0000',
             weight: 3,
             opacity: 0.6,
             dashArray: [10, 20],
             animate: true
         }).addTo(map);
 
-        var path2 = L.polyline.antPath([seattle, philadelphia], {
-            color: '#3498db',
+        var path2 = L.polyline.antPath([miami, washington], {
+            color: '#00FF00',
             weight: 3,
             opacity: 0.6,
             dashArray: [10, 20],
             animate: true
         }).addTo(map);
 
-        var path3 = L.polyline.antPath([philadelphia, miami], {
-            color: '#3498db',
+        var path3 = L.polyline.antPath([washington, nashville], {
+            color: '#0000FF',
             weight: 3,
             opacity: 0.6,
             dashArray: [10, 20],
             animate: true
         }).addTo(map);
 
-        var path4 = L.polyline.antPath([miami, sanFrancisco], {
-            color: '#3498db',
+        var path4 = L.polyline.antPath([nashville, riyadh], {
+            color: '#FFA500',
             weight: 3,
             opacity: 0.6,
             dashArray: [10, 20],
@@ -262,7 +257,7 @@
         }).addTo(map);
 
         // Fit bounds to show all markers
-        var bounds = L.latLngBounds([riyadh, seattle, philadelphia, miami, sanFrancisco]);
+        var bounds = L.latLngBounds([riyadh, miami, washington, nashville]);
         map.fitBounds(bounds, {padding: [50, 50]});
     </script>
 </body>
