@@ -529,6 +529,12 @@
                 {"bubblingMouseEvents": true, "color": "#FFA500", "dashArray": "20", "dashOffset": null, "fill": false, "fillColor": "#FFA500", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
             ).addTo(map_c46943978dd12d96e2d5282b0227c7aa);
 
+            // Force a refresh of the map
+            setTimeout(function() {
+                map_c46943978dd12d96e2d5282b0227c7aa.invalidateSize();
+                nashville_marker.openPopup();
+            }, 1000);
+
         
 </script>
 </html>
