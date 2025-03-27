@@ -403,7 +403,7 @@
             ).addTo(map_c46943978dd12d96e2d5282b0227c7aa);
         
     
-            var div_icon_27b0882bcc8bbe8cdf32dec14f98b963 = L.divIcon({"className": "custom-icon", "html": "\n                    \u003cdiv class=\"icon-soccer\"\u003e\n                        \u003ci class=\"fa fa-futbol-o\" aria-hidden=\"true\"\u003e\u003c/i\u003e\n                    \u003c/div\u003e\n                ", "iconAnchor": [16, 16], "iconSize": [32, 32]});
+            var div_icon_27b0882bcc8bbe8cdf32dec14f98b963 = L.divIcon({"className": "custom-icon", "html": "\n                    <div class=\"icon-soccer\">\n                        <i class=\"fa fa-futbol-o\" aria-hidden=\"true\"></i>\n                    </div>\n                ", "iconAnchor": [16, 16], "iconSize": [32, 32]});
             marker_bda09f5fe9d2d1206d78f412b6401048.setIcon(div_icon_27b0882bcc8bbe8cdf32dec14f98b963);
         
     
@@ -521,6 +521,7 @@
             </div>`)[0];
             nashville_popup.setContent(nashville_content);
             nashville_marker.bindPopup(nashville_popup);
+            nashville_marker.openPopup();
 
             // Add flight path from Washington to Nashville
             var washington_to_nashville = L.polyline(
