@@ -287,38 +287,95 @@
             .bindPopup('<div class="custom-popup"><h4>الهلال ضد نادي باتشوكا</h4><p>التاريخ: ٢٦ يونيو، ٢٠٢٥</p><p>الوقت: ٨:٠٠ مساءً بتوقيت وسط الولايات المتحدة</p><p>الملعب: ملعب جيوديس، ناشفيل، تينيسي</p></div>')
             .addTo(map);
 
-        // Add flight paths with plane icons
-        var path1 = L.polyline.antPath([riyadh, miami], {
+        // Riyadh to Miami (via Europe)
+        var riyadhToMiami = L.polyline([
+            [24.9578, 46.6989],  // Riyadh
+            [25.2532, 55.3657],  // Dubai
+            [51.4700, -0.4543],  // London
+            [40.6413, -73.7781], // New York
+            [25.9580, -80.2389]  // Miami
+        ], {
             color: '#FF0000',
             weight: 3,
-            opacity: 0.6,
-            dashArray: [10, 20],
+            opacity: 0.8,
+            dashArray: '10, 10',
             animate: true
         }).addTo(map);
 
-        var path2 = L.polyline.antPath([miami, washington], {
+        // Miami to Washington DC
+        var miamiToDC = L.polyline([
+            [25.9580, -80.2389], // Miami
+            [38.8686, -77.0126]  // Washington DC
+        ], {
             color: '#00FF00',
             weight: 3,
-            opacity: 0.6,
-            dashArray: [10, 20],
+            opacity: 0.8,
+            dashArray: '10, 10',
             animate: true
         }).addTo(map);
 
-        var path3 = L.polyline.antPath([washington, nashville], {
+        // Washington DC to Nashville
+        var dcToNashville = L.polyline([
+            [38.8686, -77.0126], // Washington DC
+            [36.1298, -86.7659]  // Nashville
+        ], {
             color: '#0000FF',
             weight: 3,
-            opacity: 0.6,
-            dashArray: [10, 20],
+            opacity: 0.8,
+            dashArray: '10, 10',
             animate: true
         }).addTo(map);
 
-        var path4 = L.polyline.antPath([nashville, riyadh], {
+        // Nashville to Riyadh (via Europe)
+        var nashvilleToRiyadh = L.polyline([
+            [36.1298, -86.7659], // Nashville
+            [40.6413, -73.7781], // New York
+            [51.4700, -0.4543],  // London
+            [25.2532, 55.3657],  // Dubai
+            [24.9578, 46.6989]   // Riyadh
+        ], {
             color: '#FFA500',
             weight: 3,
-            opacity: 0.6,
-            dashArray: [10, 20],
+            opacity: 0.8,
+            dashArray: '10, 10',
             animate: true
         }).addTo(map);
+
+        // Riyadh Airport
+        var riyadhIcon = L.icon({
+            iconUrl: 'team_logos/Mysnapchat.jpg',
+            iconSize: [30, 30],
+            iconAnchor: [15, 15]
+        });
+        L.marker([24.9578, 46.6989], {icon: riyadhIcon}).addTo(map)
+            .bindPopup('<strong>مطار الملك خالد الدولي (RUH)</strong><br>الرياض، المملكة العربية السعودية');
+
+        // Hard Rock Stadium
+        var hardRockIcon = L.icon({
+            iconUrl: 'team_logos/TikTok.jpg',
+            iconSize: [30, 30],
+            iconAnchor: [15, 15]
+        });
+        L.marker([25.9580, -80.2389], {icon: hardRockIcon}).addTo(map)
+            .bindPopup('<strong>ملعب هارد روك</strong><br>ميامي، فلوريدا<br>ريال مدريد ضد الهلال<br>١٨ يونيو، ٢٠٢٥<br>٣:٠٠ مساءً بتوقيت شرق الولايات المتحدة');
+
+        // Audi Field
+        var audiFieldIcon = L.icon({
+            iconUrl: 'team_logos/TikTok.jpg',
+            iconSize: [30, 30],
+            iconAnchor: [15, 15]
+        });
+        L.marker([38.8686, -77.0126], {icon: audiFieldIcon}).addTo(map)
+            .bindPopup('<strong>ملعب أودي</strong><br>واشنطن العاصمة<br>ريد بول سالزبورغ ضد الهلال<br>٢٢ يونيو، ٢٠٢٥<br>٦:٠٠ مساءً بتوقيت شرق الولايات المتحدة');
+
+        // Geodis Park
+        var geodisIcon = L.icon({
+            iconUrl: 'team_logos/TikTok.jpg',
+            iconSize: [30, 30],
+            iconAnchor: [15, 15]
+        });
+        L.marker([36.1298, -86.7659], {icon: geodisIcon}).addTo(map)
+            .bindPopup('<strong>ملعب جيوديس</strong><br>ناشفيل، تينيسي<br>الهلال ضد نادي باتشوكا<br>٢٦ يونيو، ٢٠٢٥<br>٨:٠٠ مساءً بتوقيت وسط الولايات المتحدة');
 
         // Fit bounds to show all markers
         var bounds = L.latLngBounds([riyadh, miami, washington, nashville]);
